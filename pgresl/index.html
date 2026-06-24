@@ -1,1 +1,234 @@
+```html
+<html>
+<head>
+  <title>Prior-Guided Residual Learning for Direction-Free Dexterous Grasping</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js" type="module"></script>
+</head>
+
+<body> 
+
+<div class="container">
+  <h1>
+    <span style="font-size:42px">
+      Prior-Guided Residual Learning for Direction-Free Dexterous Grasping
+    </span>
+  </h1>
+
+  <br>
+
+  <h2>
+    <span style="font-size:28px">
+      IROS 2026 Submission
+    </span>
+  </h2>
+
+  <br>
+
+  <table width="1000px" align="center">
+    <tr>
+      <td align=center width=170px>
+        <center>
+          <span style="font-size:24px"><a href="https://lihaoming45.github.io/">Haoming Li<sup>1</sup></a></span>
+        </center>
+      </td>
+
+
+      <td align=center width=160px>
+        <center>
+          <span style="font-size:24px"><a href="">Bingheng Zhang<sup>1</sup></a></span>
+        </center>
+      </td>
+      
+      <td align=center width=160px>
+        <center>
+          <span style="font-size:24px"><a href="">Wenzhe Ouyang<sup>1</sup></a></span>
+        </center>
+      </td>
+
+      <td align=center width=160px>
+        <center>
+          <span style="font-size:24px"><a href="">Shijian Jiang<sup>1</sup></a></span>
+        </center>
+      </td>
+      
+      <td align=center width=160px>
+        <center>
+          <span style="font-size:24px"><a href="">Anjun Chen<sup>2</sup></a></span>
+        </center>
+      </td>
+
+      <td align=center width=180px>
+        <center>
+          <span style="font-size:24px"><a href="https://person.zju.edu.cn/jmchen">Jiming Chen<sup>1</sup></a></span>
+        </center>
+      </td>
+      
+      <td align=center width=160px>
+        <center>
+          <span style="font-size:24px"><a href="https://person.zju.edu.cn/yeqi">Qi Ye<sup>1</sup></a></span>
+        </center>
+      </td>
+    </tr>
+  </table>
+
+  <br>
+
+  <table>
+    <tr>
+      <span style="font-size: 22px">
+        1 College of Control Science and Engineering, Zhejiang University
+      </span>
+    </tr>
+    <br>
+    <tr>
+      <span style="font-size: 22px">
+        2 School of Informatics, Xiamen University, Xiamen, Fujian, 361102, China
+      </span>
+    </tr>
+    <br>
+  </table>
+
+  <br>
+
+  <table width="700px" align="center">
+    <tr>
+      <td align=center width=100px>
+        <center>
+          <span style="font-size:24px"><a href="">[Paper]</a></span>
+        </center>
+      </td>
+
+      <td align=center width=100px>
+        <center>
+          <span style="font-size:24px"><a href="">[Code]</a></span>
+        </center>
+      </td>
+
+    </tr>
+  </table>
+
+  <p>
+    <div class="row">
+      <img src="resources/teaser.jpg" style="width:95%; padding-top:35px;">
+    </div>
+  </p>
+</div>
+
+</br>
+
+<div class="container">
+  <h1>Abstract</h1>
+    <p align="justify">
+      Dexterous grasping with anthropomorphic multi-fingered hands remains challenging due to the high-dimensional action space, complex contact dynamics, and limited generalization of existing policies under diverse approach directions and functional grasping constraints. Although recent methods have achieved strong performance in standard top-down grasping scenarios, they often struggle to handle universal-direction grasping and diverse interaction poses, where the robot must approach objects from arbitrary directions and maintain robust hand-object interaction.
+    </p>
+
+    <p align="justify">
+      In this paper, we propose <b>PG-RPO</b>, a <b>Prior-Guided Residual Policy Optimization</b> framework for robust and generalizable dexterous grasping. The key idea is to use task-relevant grasping priors to reduce the exploration difficulty of reinforcement learning in the high-dimensional dexterous hand action space. Specifically, we first extract semantic-aware reference action sequences from input text prompts and object point clouds, which provide coarse but meaningful grasping trajectories. We then train a diffusion-transformer-based behavior cloning policy to predict base grasping actions conditioned on these reference actions and the hand-object state representation. During reinforcement learning, the behavior cloning policy is frozen and used as a base policy, while a residual policy learns fine-grained corrective action offsets to improve grasp robustness and physical feasibility.
+    </p>
+
+    <p align="justify">
+      Extensive experiments in simulation demonstrate that PG-RPO achieves competitive performance in standard top-down grasping and significantly improves success rates in the more challenging universal-direction setting. PG-RPO also generalizes well to unseen objects, cross-dataset objects, and diverse functional grasp poses. Furthermore, real-world experiments with a dexterous robotic hand validate the physical feasibility and transferability of the proposed framework.
+    </p>
+</div>   
+
+</br>
+
+<div class="container">
+  <h1>Framework Overview</h1>
+
+  <p align="justify">
+    PG-RPO consists of three main components. First, a prior grasp extraction module generates semantic-aware reference actions from the input text prompt and object point cloud. Second, a diffusion-transformer-based behavior cloning policy predicts base action chunks from the current state and the reference action sequence. Finally, a residual reinforcement learning policy learns corrective action offsets on top of the base actions, enabling robust dexterous grasping under diverse object shapes and approach directions.
+  </p>
+
+  <video controls height="80%">
+      <source src="resources/framework_overview.mp4" type="video/mp4">
+  </video>
+</div> 
+
+</br>
+
+<div class="container">
+  <h1>Universal-Direction Dexterous Grasping</h1>
+
+  <p align="justify">
+    Unlike conventional top-down grasping methods, PG-RPO supports universal-direction dexterous grasping, where the hand approaches the object from diverse directions on the upper hemisphere. The reference-guided base policy provides a meaningful initial action prior, while residual reinforcement learning further adapts the grasping behavior to contact dynamics and object geometry.
+  </p>
+
+  <video controls height="80%">
+      <source src="resources/universal_direction_grasping.mp4" type="video/mp4">
+  </video>
+</div> 
+
+</br>
+
+
+<div class="container">
+  <h1>Quantitative Results</h1>
+
+  <p align="justify">
+    PG-RPO is benchmarked against representative dexterous grasping baselines in both top-down and universal-direction grasping settings. In the challenging universal-direction setting, PG-RPO achieves strong generalization on unseen objects and cross-dataset objects, demonstrating the effectiveness of using semantic priors, behavior cloning, and residual reinforcement learning together.
+  </p>
+
+  <div class="row">
+    <img src="resources/quantitative_results.jpg" style="width:95%; padding-top:35px;">
+  </div>
+</div>   
+
+</br>
+
+<div class="container">
+  <h1>Ablation Study</h1>
+
+  <p align="justify">
+    We conduct ablation studies to analyze the contribution of each component in PG-RPO, including reference actions, the behavior cloning base policy, and the residual reinforcement learning policy. The results show that reference actions provide important semantic guidance, the base policy constrains exploration with meaningful grasping priors, and residual reinforcement learning is critical for fine-grained adjustment during physical interaction.
+  </p>
+
+  <div class="row">
+    <img src="resources/ablation_study.jpg" style="width:95%; padding-top:35px;">
+  </div>
+</div>   
+
+</br>
+
+<div class="container">
+  <h1>Real-World Validation</h1>
+
+  <p align="justify">
+    To evaluate the sim-to-real transferability of PG-RPO, we conduct real-world experiments using a dexterous robotic hand and a robotic arm. The generated trajectories are retargeted to the physical hand and executed on real objects. The results demonstrate that PG-RPO can generate stable and physically feasible grasping trajectories across diverse functional poses.
+  </p>
+
+  <video controls height="80%">
+      <source src="resources/real_world_validation.mp4" type="video/mp4">
+  </video>
+</div>   
+
+</br>
+
+<div class="container">
+  <h1> BibTeX</h1>
+
+  <table align=center width=1000px height=200px>
+    <tr>
+      <td align=left width=1000px style="color: #4d4b59; font-size:12pt">
+<pre>@inproceedings{li2026pgrpo,
+&nbsp; title={Prior-Guided Residual Policy Optimization for Dexterous Grasping},
+&nbsp; author={Li, Haoming and Ye, Qi and Liu, Qingtao and Jiang, Shijian and Zhou, Tao and Huo, Yuchi and Chen, Jiming},
+&nbsp; booktitle={IEEE/RSJ International Conference on Intelligent Robots and Systems},
+&nbsp; year={2026}
+}</pre>
+      </td>
+    </tr>
+  </table>
+</div>
+
+</br>
+
+<div class="containersmall">
+  <p>Contact: <a href="mailto:haomingli@zju.edu.cn">Haoming Li</a>, <a href="mailto:qi.ye@zju.edu.cn">Qi Ye</a></p>
+</div>
+ 
+</body>
+</html>
+```
 
