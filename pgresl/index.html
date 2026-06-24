@@ -1,1 +1,328 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Prior-Guided Residual Learning for Direction-Free Dexterous Grasping">
+  <meta name="keywords" content="PG-ResL, Direction-Free Dexterous Grasping, Residual Learning, Diffusion Policy, Robotic Grasping">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PG-ResL: Prior-Guided Residual Learning for Direction-Free Dexterous Grasping</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+<!--       <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a> -->
+
+<!--       <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://lihaoming45.github.io/tpgp.github.io/">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div> -->
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">PG-ResL: Prior-Guided Residual Learning for Direction-Free Dexterous Grasping</h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Anonymous Submission</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">IROS 2026 Submission</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. Replace href after the paper can be released. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <!-- Video Link. Replace href after the supplementary video is ready. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noopener noreferrer">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+
+              <!-- Code Link. Uncomment after acceptance if code is released. -->
+<!--               <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span> -->
+
+              <!-- Dataset Link. Uncomment after acceptance if data is released. -->
+<!--               <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+              </span> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/framework_overview.jpg" type="image/png" alt="Overview of PG-ResL">
+      <h2 class="subtitle has-text-centered">
+        PG-ResL enables direction-free dexterous grasping by combining semantic reference generation, reference-initialized diffusion base policy learning, and residual policy learning via reinforcement learning.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Dexterous grasping with high-DoF multi-fingered hands remains challenging due to the large exploration space and the need to generalize across diverse approach directions and interaction poses. Although recent learning-based methods perform well in constrained settings such as top-down grasping, their performance often degrades when the robot must approach objects from arbitrary directions to satisfy different interaction intents.
+          </p>
+          <p>
+            In this work, we present PG-ResL, a prior-guided residual learning framework for robust and generalizable direction-free dexterous grasping. Given a semantic grasp intent, PG-ResL first generates a reference action sequence that provides a coarse approach-grasp-lift interaction pattern. We then introduce a reference-initialized diffusion base policy that starts denoising from a noisy version of the reference action chunk, explicitly injecting the prior into the action generation process. Finally, a residual reinforcement learning policy learns bounded corrective offsets on top of the base actions, allowing the policy to adapt to complex contact dynamics while preserving the intended grasp interaction. Extensive simulation and real-world experiments demonstrate that PG-ResL achieves strong performance in direction-free dexterous grasping and successfully transfers to physical hardware.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Method Overview. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method Overview</h2>
+        <div class="content has-text-justified">
+          <p>
+            PG-ResL is a prior-guided hierarchical residual learning framework. Instead of learning a dexterous grasping policy from scratch, the method explicitly constructs a semantic-rich behavioral prior through reference action generation. The reference trajectory is segmented into action chunks and injected into a diffusion-based behavior cloning policy through reference initialization, so that the denoising process performs structured refinement around the intended approach-grasp-lift sequence.
+          </p>
+          <p>
+            After the diffusion base policy is trained, its parameters are frozen and a residual policy is optimized via reinforcement learning. The residual policy predicts fine-grained corrective actions within a localized correction space around the base actions. This design reduces the high-dimensional exploration difficulty of dexterous hands, improves robustness under contact-rich dynamics, and helps preserve the functional semantics of the target grasp.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Method Overview. -->
+
+    <!-- Highlights. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Highlights</h2>
+        <div class="content has-text-justified">
+          <ul>
+            <li>
+              <b>Semantic reference generation:</b> reference action sequences are generated from text prompts and object point clouds to provide coarse approach-grasp-lift priors.
+            </li>
+            <li>
+              <b>Reference-initialized diffusion:</b> the diffusion base policy starts denoising from noisy reference action chunks instead of pure Gaussian noise or repeated target poses.
+            </li>
+            <li>
+              <b>Residual policy learning:</b> a residual RL policy learns bounded corrective offsets on top of the frozen base policy, improving execution stability and cross-object generalization.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--/ Highlights. -->
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="content has-text-centered">
+          <p>
+            Supplementary video will be added here after the review or camera-ready stage.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Experiments</h2>
+        <div class="content has-text-justified">
+          <p>
+            We evaluate PG-ResL in NVIDIA Isaac Gym under both top-down and direction-free grasping settings. In the top-down setting, the hand starts from a predefined position above the object. In the direction-free setting, the hand approaches the object from arbitrary directions on the upper hemisphere, which introduces a substantially larger exploration space.
+          </p>
+          <p>
+            PG-ResL achieves competitive performance in standard top-down grasping and substantially improves over strong baselines in direction-free grasping. On the direction-free setting, PG-ResL achieves 89.4% success on the training set, 87.9% on test-seen objects, 86.0% on test-unseen objects, and 84.5% on Objaverse objects. These results demonstrate strong robustness to diverse approach directions, object geometries, and dataset shift.
+          </p>
+          <p>
+            We further evaluate the method across diverse functional grasp poses from Dexonomy. PG-ResL consistently outperforms reference-only execution and ResDex across seven representative grasp types, showing its ability to preserve functional intent while producing physically feasible grasp motions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Real-World Validation</h2>
+        <div class="content has-text-justified">
+          <p>
+            To evaluate sim-to-real transfer, we deploy PG-ResL on a physical robotic platform with a 6-DoF RealMan RM75-6F arm and a 12-DoF XHand dexterous hand. The generated trajectories are retargeted from the simulated Shadow Hand to the XHand, and object poses are estimated by point cloud registration between real scans and object mesh models.
+          </p>
+          <p>
+            Experiments on representative household objects show that PG-ResL can execute stable real-world grasps with noisy target pose inputs and diverse semantic prompts, demonstrating the practical applicability of the proposed prior-guided residual learning framework.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{anonymous2026pgresl,
+  title={Prior-Guided Residual Learning for Direction-Free Dexterous Grasping},
+  author={Anonymous},
+  booktitle={IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  year={2026}
+}</code></pre>
+  </div>
+</section>
+
+<!-- <footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer> -->
+
+</body>
+</html>
+```
 
