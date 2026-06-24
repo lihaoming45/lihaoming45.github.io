@@ -1,13 +1,12 @@
-```html
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Prior-Guided Residual Learning for Direction-Free Dexterous Grasping">
-  <meta name="keywords" content="PG-ResL, Direction-Free Dexterous Grasping, Residual Learning, Diffusion Policy, Robotic Grasping">
+        content="A Visual Interaction Representation for Robotic Grasping">
+  <meta name="keywords" content="InterRep, Robotic Grasping">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PG-ResL: Prior-Guided Residual Learning for Direction-Free Dexterous Grasping</title>
+  <title>TPGP: Temporal-Parametric Optimization with Deep Grasp Prior for Dexterous Motion Planning</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -89,21 +88,51 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">PG-ResL: Prior-Guided Residual Learning for Direction-Free Dexterous Grasping</h1>
-
+          <h1 class="title is-1 publication-title">TPGP: Temporal-Parametric Optimization with Deep Grasp Prior for Dexterous Motion Planning</h1>
           <div class="is-size-5 publication-authors">
-            <span class="author-block">Anonymous Submission</span>
+            <span class="author-block">
+              <a href="">Haoming Li<sup>1</sup> </a>,</span>
+            <span class="author-block">
+              <a href="https://perple-zju.github.io/">Qi Ye<sup>1</sup></a>,</span>
+            <span class="author-block">
+              <a href="">Yuchi Huo<sup>2</sup></a>,
+            </span>
+            <span class="author-block">
+              <a href="">Qingtao Liu<sup>1</sup></a>,
+            </span>
+            <span class="author-block">
+              <a href="">Shijiang Jiang<sup>1</sup></a>,
+            </span>
+            <span class="author-block">
+              <a href="">Tao Zhou<sup>1</sup></a>,
+            </span>
+            <span class="author-block">
+              <a href="">Xiang Li<sup>3</sup></a>,
+            </span>
+            <span class="author-block">
+              <a href="">Yang Zhou<sup>3</sup></a>,
+            </span>
+            <span class="author-block">
+              <a href="https://homes.cs.washington.edu/~seitz/">Jiming Chen<sup>1</sup></a>,
+            </span>
+        
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block">IROS 2026 Submission</span>
+            <span class="author-block">Zhejiang University<sup>1</sup></span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">State Key Lab of CAD\&CG, Zhejiang University, and Zhejiang Lab<sup>2</sup></span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">OPPO US Research Center<sup>3</sup></span>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
-              <!-- PDF Link. Replace href after the paper can be released. -->
+              <!-- PDF Link. -->
               <span class="link-block">
-                <a href=""
+                <a href="https://ieeexplore.ieee.org/abstract/document/10610408"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -111,10 +140,18 @@
                   <span>Paper</span>
                 </a>
               </span>
-
-              <!-- Video Link. Replace href after the supplementary video is ready. -->
+<!--               <span class="link-block">
+                <a href="https://arxiv.org/abs/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+              <!-- Video Link. -->
               <span class="link-block">
-                <a href=""
+                <a href="https://www.bilibili.com/video/BV1knk3Y7EN6/?share_source=copy_web&vd_source=12e1a20efaf1a5f50f59509039759710"
                    class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noopener noreferrer">
                   <span class="icon">
                       <i class="fab fa-youtube"></i>
@@ -122,10 +159,9 @@
                   <span>Video</span>
                 </a>
               </span>
-
-              <!-- Code Link. Uncomment after acceptance if code is released. -->
+              <!-- Code Link. -->
 <!--               <span class="link-block">
-                <a href=""
+                <a href="https://github.com/google/nerfies"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -133,17 +169,15 @@
                   <span>Code</span>
                   </a>
               </span> -->
-
-              <!-- Dataset Link. Uncomment after acceptance if data is released. -->
+              <!-- Dataset Link. -->
 <!--               <span class="link-block">
-                <a href=""
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="far fa-images"></i>
                   </span>
                   <span>Data</span>
-                  </a>
-              </span> -->
+                  </a> -->
             </div>
 
           </div>
@@ -156,9 +190,9 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="./static/images/framework_overview.jpg" type="image/png" alt="Overview of PG-ResL">
+      <img src="./static/images/framework_overview.jpg" type="image/png" alt="Description of the image">
       <h2 class="subtitle has-text-centered">
-        PG-ResL enables direction-free dexterous grasping by combining semantic reference generation, reference-initialized diffusion base policy learning, and residual policy learning via reinforcement learning.
+        Overview of Our TPGP Method. It mainly consists of two modules: an HPoser network and a temporal-parametric grasp prior optimization module.
       </h2>
     </div>
   </div>
@@ -173,107 +207,39 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Dexterous grasping with high-DoF multi-fingered hands remains challenging due to the large exploration space and the need to generalize across diverse approach directions and interaction poses. Although recent learning-based methods perform well in constrained settings such as top-down grasping, their performance often degrades when the robot must approach objects from arbitrary directions to satisfy different interaction intents.
+            Grasping motion planning aims to find a feasible grasping trajectory in the configuration space given an input target grasp.
+            While optimizing grasp motion with two or three-fingered grippers has been well-studied,
+            the study on natural grasp motion planning with a dexterous
+            hand remains a very challenging problem due to the high dimensional working space. 
           </p>
           <p>
-            In this work, we present PG-ResL, a prior-guided residual learning framework for robust and generalizable direction-free dexterous grasping. Given a semantic grasp intent, PG-ResL first generates a reference action sequence that provides a coarse approach-grasp-lift interaction pattern. We then introduce a reference-initialized diffusion base policy that starts denoising from a noisy version of the reference action chunk, explicitly injecting the prior into the action generation process. Finally, a residual reinforcement learning policy learns bounded corrective offsets on top of the base actions, allowing the policy to adapt to complex contact dynamics while preserving the intended grasp interaction. Extensive simulation and real-world experiments demonstrate that PG-ResL achieves strong performance in direction-free dexterous grasping and successfully transfers to physical hardware.
+            In this work, we propose a novel temporal-parametric grasp prior (TPGP) optimization method 
+            to simplify the difficulty of grasping trajectory optimization for the dexterous hand while 
+            maintaining smooth and natural properties of the grasping motion. Specifically, we formulate 
+            the discrete trajectory parameters into a temporal-based parameterization, 
+            where the prior constraint provided by a hand poser network, is introduced to ensure that hand pose is natural and reasonable throughout the trajectory. 
+            Finally, we present a joint target optimization strategy to enhance the target pose for more feasible trajectories.
+            Extensive validations on two public datasets show that our method outperforms state-of-the-art methods regarding grasp motion on various metrics. 
           </p>
         </div>
       </div>
     </div>
     <!--/ Abstract. -->
 
-    <!-- Method Overview. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Method Overview</h2>
-        <div class="content has-text-justified">
-          <p>
-            PG-ResL is a prior-guided hierarchical residual learning framework. Instead of learning a dexterous grasping policy from scratch, the method explicitly constructs a semantic-rich behavioral prior through reference action generation. The reference trajectory is segmented into action chunks and injected into a diffusion-based behavior cloning policy through reference initialization, so that the denoising process performs structured refinement around the intended approach-grasp-lift sequence.
-          </p>
-          <p>
-            After the diffusion base policy is trained, its parameters are frozen and a residual policy is optimized via reinforcement learning. The residual policy predicts fine-grained corrective actions within a localized correction space around the base actions. This design reduces the high-dimensional exploration difficulty of dexterous hands, improves robustness under contact-rich dynamics, and helps preserve the functional semantics of the target grasp.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Method Overview. -->
-
-    <!-- Highlights. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Highlights</h2>
-        <div class="content has-text-justified">
-          <ul>
-            <li>
-              <b>Semantic reference generation:</b> reference action sequences are generated from text prompts and object point clouds to provide coarse approach-grasp-lift priors.
-            </li>
-            <li>
-              <b>Reference-initialized diffusion:</b> the diffusion base policy starts denoising from noisy reference action chunks instead of pure Gaussian noise or repeated target poses.
-            </li>
-            <li>
-              <b>Residual policy learning:</b> a residual RL policy learns bounded corrective offsets on top of the frozen base policy, improving execution stability and cross-object generalization.
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <!--/ Highlights. -->
-
     <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="content has-text-centered">
-          <p>
-            Supplementary video will be added here after the review or camera-ready stage.
-          </p>
-        </div>
-      </div>
-    </div>
+
+    <div class="video-container">
+  <iframe 
+    src="//player.bilibili.com/player.html?isOutside=true&aid=113662568301262&bvid=BV1knk3Y7EN6&cid=27374715395&p=1" 
+    width="800" 
+    height="450" 
+    scrolling="no" 
+    frameborder="0"  
+    class="responsive-iframe"
+    allowfullscreen="true">
+  </iframe>
+</div>
     <!--/ Paper video. -->
-
-  </div>
-</section>
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Experiments</h2>
-        <div class="content has-text-justified">
-          <p>
-            We evaluate PG-ResL in NVIDIA Isaac Gym under both top-down and direction-free grasping settings. In the top-down setting, the hand starts from a predefined position above the object. In the direction-free setting, the hand approaches the object from arbitrary directions on the upper hemisphere, which introduces a substantially larger exploration space.
-          </p>
-          <p>
-            PG-ResL achieves competitive performance in standard top-down grasping and substantially improves over strong baselines in direction-free grasping. On the direction-free setting, PG-ResL achieves 89.4% success on the training set, 87.9% on test-seen objects, 86.0% on test-unseen objects, and 84.5% on Objaverse objects. These results demonstrate strong robustness to diverse approach directions, object geometries, and dataset shift.
-          </p>
-          <p>
-            We further evaluate the method across diverse functional grasp poses from Dexonomy. PG-ResL consistently outperforms reference-only execution and ResDex across seven representative grasp types, showing its ability to preserve functional intent while producing physically feasible grasp motions.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Real-World Validation</h2>
-        <div class="content has-text-justified">
-          <p>
-            To evaluate sim-to-real transfer, we deploy PG-ResL on a physical robotic platform with a 6-DoF RealMan RM75-6F arm and a 12-DoF XHand dexterous hand. The generated trajectories are retargeted from the simulated Shadow Hand to the XHand, and object poses are estimated by point cloud registration between real scans and object mesh models.
-          </p>
-          <p>
-            Experiments on representative household objects show that PG-ResL can execute stable real-world grasps with noisy target pose inputs and diverse semantic prompts, demonstrating the practical applicability of the proposed prior-guided residual learning framework.
-          </p>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -281,11 +247,13 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@inproceedings{anonymous2026pgresl,
-  title={Prior-Guided Residual Learning for Direction-Free Dexterous Grasping},
-  author={Anonymous},
-  booktitle={IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
-  year={2026}
+    <pre><code>@inproceedings{li2024tpgp,
+  title={TPGP: Temporal-Parametric Optimization with Deep Grasp Prior for Dexterous Motion Planning},
+  author={Haoming Li, Qi Ye, Yuchi Hu, Qingtao Liu,  Shijian Jiang, Tao Zhou, \\ Xiang Li, Yang Zhou, Jiming Chen},
+  booktitle={2024 IEEE International Conference on Robotics and Automation (ICRA)},
+  pages={18106--18112},
+  year={2024},
+  organization={IEEE}
 }</code></pre>
   </div>
 </section>
@@ -324,5 +292,3 @@
 
 </body>
 </html>
-```
-
