@@ -230,7 +230,7 @@
             PG-ResL is a prior-guided hierarchical residual learning framework. Instead of learning a dexterous grasping policy from scratch, the method explicitly constructs a semantic-rich behavioral prior through reference action generation. The reference trajectory is segmented into action chunks and injected into a diffusion-based behavior cloning policy through reference initialization, so that the denoising process performs structured refinement around the intended approach-grasp-lift sequence.
           </p>
           <p>
-            After the diffusion base policy is trained, its parameters are frozen and a residual policy is optimized via reinforcement learning. The residual policy predicts fine-grained corrective actions within a localized correction space around the base actions. This design reduces the high-dimensional exploration difficulty of dexterous hands, improves robustness under contact-rich dynamics, and helps preserve the functional semantics of the target grasp.
+            After the diffusion-based policy is trained, its parameters are frozen, and a residual policy is optimized via reinforcement learning. The residual policy predicts fine-grained corrective actions within a localized correction space around the base actions. This design reduces the high-dimensional exploration difficulty of dexterous hands, improves robustness under contact-rich dynamics, and helps preserve the functional semantics of the target grasp.
           </p>
         </div>
       </div>
@@ -258,18 +258,23 @@
     </div>
     <!--/ Highlights. -->
 
+    
+    
     <!-- Paper video. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Video</h2>
         <div class="content has-text-centered">
-          <p>
-            Supplementary video will be added here after the review or camera-ready stage.
-          </p>
+          <video controls muted loop playsinline style="width:100%; max-width:900px; border-radius:10px;">
+            <source src="./static/images/demo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
     </div>
     <!--/ Paper video. -->
+
+
 
   </div>
 </section>
