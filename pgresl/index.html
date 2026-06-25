@@ -225,8 +225,6 @@
         <div class="content has-text-justified">
           <p>
             PG-ResL is a prior-guided hierarchical residual learning framework. Instead of learning a dexterous grasping policy from scratch, the method explicitly constructs a semantic-rich behavioral prior through reference action generation. The reference trajectory is segmented into action chunks and injected into a diffusion-based behavior cloning policy through reference initialization, so that the denoising process performs structured refinement around the intended approach-grasp-lift sequence.
-          </p>
-          <p>
             After the diffusion-based policy is trained, its parameters are frozen, and a residual policy is optimized via reinforcement learning. The residual policy predicts fine-grained corrective actions within a localized correction space around the base actions. This design reduces the high-dimensional exploration difficulty of dexterous hands, improves robustness under contact-rich dynamics, and helps preserve the functional semantics of the target grasp.
           </p>
         </div>
