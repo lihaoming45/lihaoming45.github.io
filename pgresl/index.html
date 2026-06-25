@@ -277,58 +277,6 @@
 </section>
 
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Experiments</h2>
-        <div class="content has-text-justified">
-          <p>
-            We evaluate PG-ResL in NVIDIA Isaac Gym under both top-down and direction-free grasping settings. In the top-down setting, the hand starts from a predefined position above the object. In the direction-free setting, the hand approaches the object from arbitrary directions on the upper hemisphere, which introduces a substantially larger exploration space.
-          </p>
-          <p>
-            PG-ResL achieves competitive performance in standard top-down grasping and substantially improves over strong baselines in direction-free grasping. On the direction-free setting, PG-ResL achieves 89.4% success on the training set, 87.9% on test-seen objects, 86.0% on test-unseen objects, and 84.5% on Objaverse objects. These results demonstrate strong robustness to diverse approach directions, object geometries, and dataset shift.
-          </p>
-          <p>
-            We further evaluate the method across diverse functional grasp poses from Dexonomy. PG-ResL consistently outperforms reference-only execution and ResDex across seven representative grasp types, showing its ability to preserve functional intent while producing physically feasible grasp motions.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Real-World Validation</h2>
-        <div class="content has-text-justified">
-          <p>
-            To evaluate sim-to-real transfer, we deploy PG-ResL on a physical robotic platform with a 6-DoF RealMan RM75-6F arm and a 12-DoF XHand dexterous hand. The generated trajectories are retargeted from the simulated Shadow Hand to the XHand, and object poses are estimated by point cloud registration between real scans and object mesh models.
-          </p>
-          <p>
-            Experiments on representative household objects show that PG-ResL can execute stable real-world grasps with noisy target pose inputs and diverse semantic prompts, demonstrating the practical applicability of the proposed prior-guided residual learning framework.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@inproceedings{li2026pgresl,
-  title={Prior-Guided Residual Learning for Direction-Free Dexterous Grasping},
-  author={Li, Haoming and Zhang, Bingheng and Ouyang, Wenzhe and Jiang, Shijian and Chen, Anjun and Chen, Jiming and Ye, Qi},
-  booktitle={IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
-  year={2026}
-}</code></pre>
-  </div>
-</section>
 
 <!-- <footer class="footer">
   <div class="container">
